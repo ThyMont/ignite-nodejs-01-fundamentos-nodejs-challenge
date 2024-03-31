@@ -62,4 +62,14 @@ async function deleteTask(req, res) {
   }
 }
 
-export default { insertTask, listTasks, findTaskById, updateTask, deleteTask };
+async function completeTask(req, res) {
+  try {
+    const { id } = req.params;
+    const task = await service.completeTask(id);
+    return res.writeHead(200).end(JSON.stringify(task));
+  } catch (error) {
+    return res.writeHead(500).end(JSON.stringify({ message: error.message }));
+  }
+}
+
+export default { insertTask, listTasks, findTaskById, updateTask, deleteTask, completeTask };

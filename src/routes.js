@@ -30,7 +30,7 @@ const routes = [
   {
     method: "PATCH",
     path: buildRoutePath("/tasks/:id/complete"),
-    handler: controller.listTasks,
+    handler: controller.completeTask,
   },
 ];
 

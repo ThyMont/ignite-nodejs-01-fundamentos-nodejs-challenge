@@ -48,4 +48,15 @@ async function deleteTask(id) {
   }
 }
 
-export default { insertTask, listarTasks, findTaskById, updateTask, deleteTask };
+async function completeTask(id) {
+  try {
+    const task = await findTaskById(id);
+    console.log(task);
+    const updatedTask = await repository.completeTask(task);
+    return updatedTask;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default { insertTask, listarTasks, findTaskById, updateTask, deleteTask, completeTask };

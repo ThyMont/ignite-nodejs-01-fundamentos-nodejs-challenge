@@ -1,1 +1,12 @@
-{}
+{
+  "tasks": [
+    {
+      "title": "Fazer compras",
+      "description": "1 lata de leite e 1 cx de ovos",
+      "completedAt": "2024-03-31T23:09:41.128Z",
+      "createdAt": "2024-03-31T23:08:26.516Z",
+      "updatedAt": "2024-03-31T23:09:41.128Z",
+      "id": "c2ea4634-2740-45cc-9886-430ef33998c3"
+    }
+  ]
+}

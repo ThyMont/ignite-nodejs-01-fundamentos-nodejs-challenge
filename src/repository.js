@@ -31,4 +31,12 @@ async function deleteTask(id) {
   await database.delete("tasks", id);
 }
 
-export default { insertTask, listTasks, findTaskById, updateTask, deleteTask };
+async function completeTask(task) {
+  const date = new Date();
+  task.updatedAt = date;
+  task.completedAt = date;
+  await database.update("tasks", task);
+  return task;
+}
+
+export default { insertTask, listTasks, findTaskById, updateTask, deleteTask, completeTask };
