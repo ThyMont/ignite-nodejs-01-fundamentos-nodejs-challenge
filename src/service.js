@@ -22,4 +22,13 @@ async function listarTasks() {
   }
 }
 
-export default { insertTask, listarTasks };
+async function findTaskById(id) {
+  try {
+    const task = await repository.findTaskById(id);
+    return task;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default { insertTask, listarTasks, findTaskById };

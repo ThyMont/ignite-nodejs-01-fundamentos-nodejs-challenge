@@ -30,9 +30,9 @@ export class Database {
   }
 
   findById(table, id) {
-    if (!Array.isArray(this.#database[table])) {
-      throw new Error("Tabela não encontrada");
-    }
+    // if (!Array.isArray(this.#database[table])) {
+    //   throw new Error("Tabela não encontrada");
+    // }
     const item = this.#database[table].find((v) => v.id === id);
     if (item) {
       return item;

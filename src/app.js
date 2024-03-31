@@ -9,9 +9,15 @@ const server = http.createServer(async (req, res) => {
   await json(req, res);
 
   if (route) {
+    const routeParams = req.url.match(route.path);
+    const { query, ...params } = routeParams.groups;
+    req.params = params;
+    console.log(req.params);
+    req.query = query ? extractQueryParams(query) : {};
+
     return route.handler(req, res);
   }
-  return res.end(JSON.stringify({ message: "Início API" }));
+  return res.writeHead(404).end(JSON.stringify({ message: "Página não encontrada" }));
 });
 
 server.listen(3000);

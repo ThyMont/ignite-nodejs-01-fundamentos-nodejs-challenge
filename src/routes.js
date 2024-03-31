@@ -13,9 +13,14 @@ const routes = [
     handler: controller.listTasks,
   },
   {
+    method: "GET",
+    path: buildRoutePath("/tasks/:id"),
+    handler: controller.findTaskById,
+  },
+  {
     method: "PUT",
     path: buildRoutePath("/tasks/:id"),
-    handler: controller.listTasks,
+    handler: controller.findTaskById,
   },
   {
     method: "DELETE",

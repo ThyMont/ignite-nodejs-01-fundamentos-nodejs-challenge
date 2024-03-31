@@ -21,7 +21,6 @@ async function insertTask(req, res) {
 async function listTasks(req, res) {
   try {
     const lista = await service.listarTasks();
-    console.log(lista);
     return res.writeHead(201).end(JSON.stringify({ tasks: lista, results: lista.length }));
   } catch (error) {
     return res
@@ -30,4 +29,16 @@ async function listTasks(req, res) {
   }
 }
 
-export default { insertTask, listTasks };
+async function findTaskById(req, res) {
+  try {
+    const { id } = req.params;
+    const task = await service.findTaskById(id);
+    return res.writeHead(201).end(JSON.stringify(task));
+  } catch (error) {
+    return res
+      .writeHead(500)
+      .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
+  }
+}
+
+export default { insertTask, listTasks, findTaskById };

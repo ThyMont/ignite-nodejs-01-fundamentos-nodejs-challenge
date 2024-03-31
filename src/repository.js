@@ -12,4 +12,9 @@ async function listTasks() {
   return lista;
 }
 
-export default { insertTask, listTasks };
+async function findTaskById(id) {
+  const task = await database.findById("tasks", id);
+  return task;
+}
+
+export default { insertTask, listTasks, findTaskById };
