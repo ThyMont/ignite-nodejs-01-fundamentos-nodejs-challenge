@@ -11,6 +11,21 @@ const routes = [
     path: "/tasks",
     handler: controller.listTasks,
   },
+  {
+    method: "PUT",
+    path: "/tasks/:id",
+    handler: controller.listTasks,
+  },
+  {
+    method: "DELETE",
+    path: "/tasks/:id",
+    handler: controller.listTasks,
+  },
+  {
+    method: "PATCH",
+    path: "/tasks/:id/complete",
+    handler: controller.listTasks,
+  },
 ];
 
 export { routes };
