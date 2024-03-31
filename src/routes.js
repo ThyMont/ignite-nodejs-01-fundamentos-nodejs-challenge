@@ -1,29 +1,30 @@
 import controller from "./controller.js";
+import { buildRoutePath } from "./utils/buildRoutePath.js";
 
 const routes = [
   {
     method: "POST",
-    path: "/tasks",
+    path: buildRoutePath("/tasks"),
     handler: controller.insertTask,
   },
   {
     method: "GET",
-    path: "/tasks",
+    path: buildRoutePath("/tasks"),
     handler: controller.listTasks,
   },
   {
     method: "PUT",
-    path: "/tasks/:id",
+    path: buildRoutePath("/tasks/:id"),
     handler: controller.listTasks,
   },
   {
     method: "DELETE",
-    path: "/tasks/:id",
+    path: buildRoutePath("/tasks/:id"),
     handler: controller.listTasks,
   },
   {
     method: "PATCH",
-    path: "/tasks/:id/complete",
+    path: buildRoutePath("/tasks/:id/complete"),
     handler: controller.listTasks,
   },
 ];

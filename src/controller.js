@@ -22,7 +22,7 @@ async function listTasks(req, res) {
   try {
     const lista = await service.listarTasks();
     console.log(lista);
-    return res.writeHead(201).end(JSON.stringify({ data: lista, results: lista.length }));
+    return res.writeHead(201).end(JSON.stringify({ tasks: lista, results: lista.length }));
   } catch (error) {
     return res
       .writeHead(500)
