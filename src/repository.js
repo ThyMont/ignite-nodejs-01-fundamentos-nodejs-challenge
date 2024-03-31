@@ -27,4 +27,8 @@ async function updateTask(id, { title, description }) {
   return task;
 }
 
-export default { insertTask, listTasks, findTaskById, updateTask };
+async function deleteTask(id) {
+  await database.delete("tasks", id);
+}
+
+export default { insertTask, listTasks, findTaskById, updateTask, deleteTask };

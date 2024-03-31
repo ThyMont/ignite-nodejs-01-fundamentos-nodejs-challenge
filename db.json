@@ -1,12 +1,3 @@
 {
-  "tasks": [
-    {
-      "title": "Se exercitar",
-      "description": "Pular corda",
-      "completedAt": null,
-      "createdAt": "2024-03-31T21:55:24.417Z",
-      "updatedAt": "2024-03-31T22:22:00.703Z",
-      "id": "621f446f-38b9-4445-864a-aa7a35f8fe5e"
-    }
-  ]
+  "tasks": []
 }

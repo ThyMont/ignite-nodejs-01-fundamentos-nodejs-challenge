@@ -40,6 +40,7 @@ async function findTaskById(req, res) {
       .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
   }
 }
+
 async function updateTask(req, res) {
   try {
     const taskForm = req.body;
@@ -57,4 +58,14 @@ async function updateTask(req, res) {
   }
 }
 
-export default { insertTask, listTasks, findTaskById, updateTask };
+async function deleteTask(req, res) {
+  try {
+    const { id } = req.params;
+    await service.deleteTask(id);
+    return res.writeHead(204).end();
+  } catch (error) {
+    return res.writeHead(500).end(JSON.stringify({ message: error.message }));
+  }
+}
+
+export default { insertTask, listTasks, findTaskById, updateTask, deleteTask };

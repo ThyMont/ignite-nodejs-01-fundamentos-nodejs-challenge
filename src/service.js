@@ -40,4 +40,12 @@ async function updateTask(id, taskForm) {
   }
 }
 
-export default { insertTask, listarTasks, findTaskById, updateTask };
+async function deleteTask(id) {
+  try {
+    await repository.deleteTask(id);
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default { insertTask, listarTasks, findTaskById, updateTask, deleteTask };

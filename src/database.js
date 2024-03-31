@@ -30,9 +30,6 @@ export class Database {
   }
 
   findById(table, id) {
-    // if (!Array.isArray(this.#database[table])) {
-    //   throw new Error("Tabela não encontrada");
-    // }
     const item = this.#database[table].find((v) => v.id === id);
     if (item) {
       return item;
@@ -59,5 +56,15 @@ export class Database {
       return data;
     }
     throw new Error(`${data.id} não encontrado`);
+  }
+
+  delete(table, id) {
+    const index = this.#database[table].findIndex((v) => v.id === id);
+    if (index > -1) {
+      this.#database[table].splice(index, 1);
+      this.#persist();
+      return;
+    }
+    throw new Error(`${id} não encontrado`);
   }
 }

@@ -25,7 +25,7 @@ const routes = [
   {
     method: "DELETE",
     path: buildRoutePath("/tasks/:id"),
-    handler: controller.listTasks,
+    handler: controller.deleteTask,
   },
   {
     method: "PATCH",
