@@ -12,9 +12,7 @@ async function insertTask(req, res) {
     await service.insertTask(task);
     return res.writeHead(201).end(JSON.stringify(task));
   } catch (error) {
-    return res
-      .writeHead(500)
-      .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
+    return res.writeHead(500).end(JSON.stringify({ message: error.message }));
   }
 }
 
@@ -23,9 +21,7 @@ async function listTasks(req, res) {
     const lista = await service.listarTasks();
     return res.writeHead(201).end(JSON.stringify({ tasks: lista, results: lista.length }));
   } catch (error) {
-    return res
-      .writeHead(500)
-      .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
+    return res.writeHead(500).end(JSON.stringify({ message: error.message }));
   }
 }
 
@@ -35,9 +31,7 @@ async function findTaskById(req, res) {
     const task = await service.findTaskById(id);
     return res.writeHead(201).end(JSON.stringify(task));
   } catch (error) {
-    return res
-      .writeHead(500)
-      .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
+    return res.writeHead(500).end(JSON.stringify({ message: error.message }));
   }
 }
 
