@@ -13,4 +13,13 @@ async function insertTask(task) {
   }
 }
 
-export default { insertTask };
+async function listarTasks() {
+  try {
+    const lista = await repository.listTasks();
+    return lista;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default { insertTask, listarTasks };

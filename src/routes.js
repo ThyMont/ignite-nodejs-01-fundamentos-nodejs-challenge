@@ -6,6 +6,11 @@ const routes = [
     path: "/tasks",
     handler: controller.insertTask,
   },
+  {
+    method: "GET",
+    path: "/tasks",
+    handler: controller.listTasks,
+  },
 ];
 
 export { routes };

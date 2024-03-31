@@ -39,4 +39,17 @@ export class Database {
     }
     throw new Error(`${id} não encontrado`);
   }
+
+  findAll(table) {
+    if (!Array.isArray(this.#database[table])) {
+      throw new Error("Tabela não encontrada");
+    }
+    console.log(table);
+    const lista = this.#database[table];
+    if (lista) {
+      return lista;
+    } else {
+      return [];
+    }
+  }
 }

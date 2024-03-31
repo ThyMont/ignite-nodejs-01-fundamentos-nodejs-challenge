@@ -3,7 +3,7 @@ import { routes } from "./routes.js";
 import { json } from "./middlewares/json.js";
 
 const server = http.createServer(async (req, res) => {
-  const route = routes.find((r) => r.method == req.method);
+  const route = routes.find((r) => r.method == req.method && req.url == r.path);
 
   await json(req, res);
 

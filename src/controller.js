@@ -18,4 +18,16 @@ async function insertTask(req, res) {
   }
 }
 
-export default { insertTask };
+async function listTasks(req, res) {
+  try {
+    const lista = await service.listarTasks();
+    console.log(lista);
+    return res.writeHead(201).end(JSON.stringify({ data: lista, results: lista.length }));
+  } catch (error) {
+    return res
+      .writeHead(500)
+      .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
+  }
+}
+
+export default { insertTask, listTasks };

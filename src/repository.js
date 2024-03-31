@@ -4,7 +4,12 @@ const database = new Database();
 
 async function insertTask(task) {
   task = await database.insert("tasks", task);
-  return await task;
+  return task;
 }
 
-export default { insertTask };
+async function listTasks() {
+  const lista = await database.findAll("tasks");
+  return lista;
+}
+
+export default { insertTask, listTasks };
