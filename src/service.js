@@ -31,4 +31,13 @@ async function findTaskById(id) {
   }
 }
 
-export default { insertTask, listarTasks, findTaskById };
+async function updateTask(id, taskForm) {
+  try {
+    const task = await repository.updateTask(id, taskForm);
+    return task;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default { insertTask, listarTasks, findTaskById, updateTask };

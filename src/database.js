@@ -49,4 +49,15 @@ export class Database {
       return [];
     }
   }
+
+  update(table, data) {
+    const index = this.#database[table].findIndex((v) => v.id === data.id);
+    console.log(index);
+    if (index > -1) {
+      this.#database[table][index] = data;
+      this.#persist();
+      return data;
+    }
+    throw new Error(`${data.id} não encontrado`);
+  }
 }

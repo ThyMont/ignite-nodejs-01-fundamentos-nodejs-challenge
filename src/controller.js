@@ -40,5 +40,21 @@ async function findTaskById(req, res) {
       .end(JSON.stringify({ message: "Não foi possível concluir a transação" }));
   }
 }
+async function updateTask(req, res) {
+  try {
+    const taskForm = req.body;
+    const { title, description } = taskForm;
+    if (!title || !description) {
+      return res
+        .writeHead(400)
+        .end(JSON.stringify({ message: "'title' e 'description' são obrigatórios" }));
+    }
+    const { id } = req.params;
+    const task = await service.updateTask(id, taskForm);
+    return res.writeHead(201).end(JSON.stringify(task));
+  } catch (error) {
+    return res.writeHead(500).end(JSON.stringify({ message: error.message }));
+  }
+}
 
-export default { insertTask, listTasks, findTaskById };
+export default { insertTask, listTasks, findTaskById, updateTask };

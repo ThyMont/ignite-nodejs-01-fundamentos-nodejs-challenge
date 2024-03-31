@@ -17,4 +17,14 @@ async function findTaskById(id) {
   return task;
 }
 
-export default { insertTask, listTasks, findTaskById };
+async function updateTask(id, { title, description }) {
+  const task = await database.findById("tasks", id);
+  task.title = title;
+  task.description = description;
+  const date = new Date();
+  task.updatedAt = date;
+  await database.update("tasks", task);
+  return task;
+}
+
+export default { insertTask, listTasks, findTaskById, updateTask };

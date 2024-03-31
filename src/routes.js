@@ -20,7 +20,7 @@ const routes = [
   {
     method: "PUT",
     path: buildRoutePath("/tasks/:id"),
-    handler: controller.findTaskById,
+    handler: controller.updateTask,
   },
   {
     method: "DELETE",
