@@ -13,6 +13,25 @@ async function insertTask(task) {
   }
 }
 
+async function insertTaskCsv(file) {
+  try {
+    for await (const record of file) {
+      // Report current line
+      console.log(record);
+      // Fake asynchronous operation
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+    // const date = new Date();
+    // task.completedAt = null;
+    // task.createdAt = date;
+    // task.updatedAt = date;
+    // task = await repository.insertTask(task);
+    // return task;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function listarTasks() {
   try {
     const lista = await repository.listTasks();
@@ -59,4 +78,12 @@ async function completeTask(id) {
   }
 }
 
-export default { insertTask, listarTasks, findTaskById, updateTask, deleteTask, completeTask };
+export default {
+  insertTask,
+  listarTasks,
+  findTaskById,
+  updateTask,
+  deleteTask,
+  completeTask,
+  insertTaskCsv,
+};
